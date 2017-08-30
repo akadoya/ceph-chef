@@ -51,7 +51,7 @@ if node['ceph']['osd']['add']
       command <<-EOH
         is_device=$(echo '#{osd_device['data']}' | egrep '/dev/(([a-z]{3,4}[0-9]$)|(cciss/c[0-9]{1}d[0-9]{1}p[0-9]$))')
         ceph-disk -v prepare --cluster #{node['ceph']['cluster']} #{dmcrypt} --fs-type #{node['ceph']['osd']['fs_type']} #{osd_device['data']} #{osd_device['journal']}
-        if [[ ! -z $is_device ]]; then
+        if [[ -z $is_device ]]; then
           ceph-disk -v activate #{osd_device['data']}#{partitions}
         else
           ceph-disk -v activate #{osd_device['data']}
