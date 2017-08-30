@@ -77,10 +77,10 @@ Most notably, the configuration does **NOT** need to set the `mon initial member
 
 The other set of attributes that this recipe needs is `node['ceph']['osd']['devices']`, which is an array of OSD definitions, similar to the following:
 
-* {'device' => '/dev/sdb'} - Use a full disk for the OSD, with a small partition for the journal
-* {'type' => 'directory', 'device' => '/src/node/sdb1/ceph'} - Use a directory, and have a small file for the journal
-* {'device' => '/dev/sde', 'dmcrypt' => true} - Store the data encrypted by passing --dmcrypt to `ceph-disk-prepare`
-* {'device' => '/dev/sdc', 'journal' => '/dev/sdd2'} - use a full disk for the OSD with a custom partition for the journal on another device such as an SSD or NMVe
+* {'data' => '/dev/sdb'} - Use a full disk for the OSD, with a small partition for the journal
+* {'type' => 'directory', 'data' => '/src/node/sdb1/ceph'} - Use a directory, and have a small file for the journal
+* {'data' => '/dev/sde', 'dmcrypt' => true} - Store the data encrypted by passing --dmcrypt to `ceph-disk-prepare`
+* {'data' => '/dev/sdc', 'journal' => '/dev/sdd2'} - use a full disk for the OSD with a custom partition for the journal on another device such as an SSD or NMVe
 
 ### Ceph Admin Commands
 
