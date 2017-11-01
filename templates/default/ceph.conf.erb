@@ -258,7 +258,7 @@
   <% else %>
   rgw frontends = civetweb port=<%= inst['port'] %> num_threads=<%= node['ceph']['radosgw']['civetweb_num_threads'] %> error_log_file=<%= node['ceph']['radosgw']['civetweb_error_log_file'] %>.<%= inst['name'] %>.log access_log_file=<%= node['ceph']['radosgw']['civetweb_access_log_file'] %>.<%= inst['name'] %>.log
   <% end %>
-  log file = /var/log/radosgw/$cluster.client.radosgw.<%= inst['region'] %>-<%= inst['name'] %>.log
+  log file = /var/log/ceph/$cluster.client.radosgw.<%= inst['region'] %>-<%= inst['name'] %>.log
   debug rgw = 1/5
   <% else %>
   <% if inst['threads'] %>
